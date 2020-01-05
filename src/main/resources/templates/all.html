@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Schedule Entries</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>All Data</h1>
+    <table>
+        <tr th:each="scheduleEntry: ${allEntries}">
+            <td th:text="'id: ' + ${scheduleEntry.id}" />
+            <td th:text="'Name: ' + ${scheduleEntry.entryName}" />
+            <td th:text="'Decsription: ' + ${scheduleEntry.description}" />
+            <td th:text="'Date: ' + ${#temporals.format(scheduleEntry.entryDate, 'dd-MM-yyyy HH:mm')}" />
+        </tr>
+    </table>
+    <p>Add new schedule entry <a href="/schedule">here</a></p>
+    <p>Go to starting page <a href="/">here</a></p>
+</body>
+</html>

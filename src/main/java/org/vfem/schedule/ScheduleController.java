@@ -20,6 +20,12 @@ public class ScheduleController {
         return scheduleEntryRepository.findAll();
     }*/
 
+    @GetMapping("/all")
+    public String all(Model model){
+        model.addAttribute("allEntries", scheduleEntryRepository.findAll());
+        return "all";
+    }
+
     @GetMapping("/schedule")
     public String scheduleForm(Model model){
         model.addAttribute("scheduleEntry", new ScheduleEntry());
