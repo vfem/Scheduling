@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adding new Schedule Entry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+    <body>
+    <h1>Result</h1>
+    <p th:text="'id: ' + ${scheduleEntry.id}"></p>
+    <p th:text="'Name: ' + ${scheduleEntry.entryName}"></p>
+    <p th:text="'Decsription: ' + ${scheduleEntry.description}"></p>
+    <p th:text="'Date: ' + ${#temporals.format(scheduleEntry.entryDate, 'dd-MM-yyyy HH:mm')}"></p>
+    <a href="/schedule">Submit another message</a>
+    </body>
+</html>
