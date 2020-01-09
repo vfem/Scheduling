@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form action="#" th:action="@{/update/{id}(id=${entry.id})}" th:object="${entry}" method="post">
+        <p>Event: <input type="text" th:field="*{entryName}" /></p>
+        <p>Description: <input type="text" th:field="*{description}" /></p>
+        <p>Date: <input type="datetime-local" min="2000-01-01T00:01" max="2100-01-01T00:01" th:field="*{entryDate}" /></p>
+        <p><input type="submit" value="Update User" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>

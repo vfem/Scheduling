@@ -7,12 +7,26 @@
 <body>
     <h1>All Data</h1>
     <table>
-        <tr th:each="scheduleEntry: ${allEntries}">
-            <td th:text="'id: ' + ${scheduleEntry.id}" />
-            <td th:text="'Name: ' + ${scheduleEntry.entryName}" />
-            <td th:text="'Decsription: ' + ${scheduleEntry.description}" />
-            <td th:text="'Date: ' + ${#temporals.format(scheduleEntry.entryDate, 'dd-MM-yyyy HH:mm')}" />
-        </tr>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="scheduleEntry: ${allEntries}">
+                <td th:text="${scheduleEntry.id}"></td>
+                <td th:text="${scheduleEntry.entryName}"></td>
+                <td th:text="${scheduleEntry.description}"></td>
+                <td th:text="${#temporals.format(scheduleEntry.entryDate, 'dd-MM-yyyy HH:mm')}"></td>
+                <td><a th:href="@{/edit/{id}(id=${scheduleEntry.id})}">Edit</a></td>
+                <td><a th:href="@{/delete/{id}(id=${scheduleEntry.id})}">Delete</a></td>
+            </tr>
+        </tbody>
     </table>
     <p>Add new schedule entry <a href="/schedule">here</a></p>
     <p>Go to starting page <a href="/">here</a></p>
